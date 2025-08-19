@@ -10,7 +10,9 @@ public class Main {
 
         // variaveis da main....
         int escolha_user;
+        int[] votos = null;
         String[][] lista = new String[5][2];
+
         System.out.println("====SEJA BEM VINDO====");
         System.out.println("Aqui você irá votar no seu futuro síndico.");
         System.out.println("======================");
@@ -21,6 +23,7 @@ public class Main {
             System.out.println("2- Realizar a votação");
             System.out.println("3- Ranking de candidatos");
             escolha_user = input.nextInt();
+
             switch (escolha_user){
                 case 1:
                     lista = cadastro.cadastrarCandidatos();
@@ -30,10 +33,10 @@ public class Main {
                         System.out.println("Você tentou iniciar uma votação vazia, adicione os candidatos primeiro!");
                         break;
                     }
-                    votacao.comecarVotacao(lista);
+                    votos = votacao.comecarVotacao(lista);
                     break;
                 case 3:
-                    ranking.orderRanking(votacao);
+                    ranking.orderRanking(lista,votos);
                     break;
                 default:
                     System.out.println("DIGITE UMA OPÇÃO VÁLIDA!");
