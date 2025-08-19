@@ -35,7 +35,6 @@ public class realizarVotacao {
             if (!votoValido) {
                 System.out.println("Código inválido, tente novamente!");
             }
-            System.out.println(Arrays.toString(countVetor));
         }
         return countVetor;
     }
