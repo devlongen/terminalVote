@@ -17,7 +17,7 @@ public class rankingCandidato {
         // Exibir o ranking
         System.out.println("===== RANKING DE CANDIDATOS =====");
         for (int i = 0; i < ranking.length; i++) {
-            System.out.println((i+1) + "º " + ranking[i][0] + " (Código: " + ranking[i][1] + ") - Votos: " + ranking[i][2]);
+            System.out.println((i+1) + "º Lugar: " + ranking[i][0] + " (Código: " + ranking[i][1] + ") - Votos: " + ranking[i][2]);
         }
     }
 }
