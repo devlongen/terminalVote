@@ -5,6 +5,12 @@ public class rankingCandidato {
     public void orderRanking(String[][] lista, int[] votos) {
         // Criar estrutura temporária [nome, código, votos]
         String[][] ranking = new String[lista.length][3];
+        int totalVotos = 0;
+
+        for (int voto : votos) {
+            totalVotos += voto;
+        }
+
         for (int i = 0; i < lista.length; i++) {
             ranking[i][0] = lista[i][0]; // nome
             ranking[i][1] = lista[i][1]; // código
@@ -17,7 +23,16 @@ public class rankingCandidato {
         // Exibir o ranking
         System.out.println("===== RANKING DE CANDIDATOS =====");
         for (int i = 0; i < ranking.length; i++) {
-            System.out.println((i+1) + "º Lugar: " + ranking[i][0] + " (Código: " + ranking[i][1] + ") - Votos: " + ranking[i][2]);
+            int votosCandidato = Integer.parseInt(ranking[i][2]);
+            double porcentagem = (totalVotos > 0) ? (votosCandidato * 100.0 / totalVotos) : 0.0;
+
+            System.out.printf("%dº Lugar: %s (Código: %s) - Votos: %s (%.2f%%)%n",
+                (i+1),
+                ranking[i][0],
+                ranking[i][1],
+                ranking[i][2],
+                porcentagem
+            );
         }
     }
 }
